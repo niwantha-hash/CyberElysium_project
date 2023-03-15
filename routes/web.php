@@ -1,6 +1,9 @@
 <?php
-use App\Http\Controllers\studentController;
+
+use App\Http\Controllers\ProfileController;
+use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
+use Inertia\Inertia;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,14 +17,22 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return Inertia::render('Welcome', [
+        'canLogin' => Route::has('login'),
+        'canRegister' => Route::has('register'),
+        'laravelVersion' => Application::VERSION,
+        'phpVersion' => PHP_VERSION,
+    ]);
 });
 
-Route::get('/students',[studentController::class,'index'])->name('students.index');
-Route::get('/students/create',[studentController::class,'create'])->name('students.create');
-Route::post('/students',[studentController::class,'store'])->name('students.store');
-Route::get('/students/{student}/edit',[studentController::class,'edit'])->name('students.edit');
-Route::put('/students/{student}',[studentController::class,'update'])->name('students.update');
-Route::delete('/students/{student}',[studentController::class,'destory'])->name('students.destory');
-Auth::routes();
-Route::get('/home',[App\Http\Controllers\studentController::class,'index'])->name('students.index');
+Route::get('/students', function () {
+    return Inertia::render('students');
+})->middleware(['auth', 'verified'])->name('students');
+
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});
+
+require __DIR__.'/auth.php';

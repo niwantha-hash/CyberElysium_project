@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3305
--- Generation Time: Mar 13, 2023 at 06:38 AM
+-- Generation Time: Mar 15, 2023 at 05:53 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.0.25
 
@@ -73,6 +73,13 @@ CREATE TABLE `password_resets` (
   `created_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Dumping data for table `password_resets`
+--
+
+INSERT INTO `password_resets` (`email`, `token`, `created_at`) VALUES
+('niwantharoxs@gmail.com', '$2y$10$SAbrX6zY.hNoaibQ18VXL.DPitwcjxsF4NAKS55OCEE93huUCoBL2', '2023-03-14 01:22:51');
+
 -- --------------------------------------------------------
 
 --
@@ -113,8 +120,8 @@ CREATE TABLE `students` (
 --
 
 INSERT INTO `students` (`id`, `name`, `image`, `age`, `state`, `created_at`, `updated_at`) VALUES
-(16, 'Test Name', '1678642380.jpg', 25, 'Active', '2023-03-12 12:03:00', '2023-03-12 12:03:00'),
-(17, 'Test Name-2', '1678643015.jpg', 12, 'Inactive', '2023-03-12 12:13:35', '2023-03-12 12:13:35');
+(22, 'Test Name', '1678795124.jpg', 11, 'InActive', '2023-03-14 06:28:44', '2023-03-14 06:29:00'),
+(23, 'Test Name-2', '1678819016.jpg', 111, 'Active', '2023-03-14 13:06:56', '2023-03-14 13:06:56');
 
 -- --------------------------------------------------------
 
@@ -138,10 +145,11 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'niwantha', 'niwantharoxs@gmail.com', NULL, '$2y$10$hJcxUtbebAPOrNSCaIGHK.ETosoxZexgz3MflE9Tk9360S4PdPdi.', 't7BEnlY65cB9lcayMvjsGqCRUpye7ZIDLDpsUJ0EKDBimOy8BvvNrTgeKdR7', '2023-03-12 01:18:50', '2023-03-12 01:18:50'),
+(1, 'niwantha', 'niwantharoxs@gmail.com', NULL, '$2y$10$hJcxUtbebAPOrNSCaIGHK.ETosoxZexgz3MflE9Tk9360S4PdPdi.', 'Paj5OuiklOKYCJumGzV7rZCFq67mmPnatLYq8Dewh4NOQlyKg7ZJFv69eid5', '2023-03-12 01:18:50', '2023-03-12 01:18:50'),
 (2, 'shanika', 'shanika@gmail.com', NULL, '$2y$10$rX8oB3LfxGWdRRTXg/PTze//05UVJ/MV.NJOw.9PzNl9enJh8jvii', NULL, '2023-03-12 03:34:30', '2023-03-12 03:34:30'),
 (3, 'waki', 'waki@gmail.com', NULL, '$2y$10$0clubBV9yLBSS3Yd902Ka.DrKtEIIPkXyDvS6jdoXHOpairScNNs6', NULL, '2023-03-12 11:51:40', '2023-03-12 11:51:40'),
-(4, 'TestRun', 'Testrun@gmail.com', NULL, '$2y$10$LBbkGSAFNnZFfIrdrMLYqe8VTl1pxGMUhnxPA27z7yWAC3GGeO2cO', NULL, '2023-03-12 12:15:24', '2023-03-12 12:15:24');
+(4, 'TestRun', 'Testrun@gmail.com', NULL, '$2y$10$LBbkGSAFNnZFfIrdrMLYqe8VTl1pxGMUhnxPA27z7yWAC3GGeO2cO', NULL, '2023-03-12 12:15:24', '2023-03-12 12:15:24'),
+(5, 'shani', 'shani@gmail.com', NULL, '$2y$10$iKGRNZz86O49fVycQM7/BO1ticmC2BW6Yy0LCJ1f779DcOu6XhCSS', NULL, '2023-03-14 01:23:52', '2023-03-14 01:23:52');
 
 --
 -- Indexes for dumped tables
@@ -213,13 +221,13 @@ ALTER TABLE `personal_access_tokens`
 -- AUTO_INCREMENT for table `students`
 --
 ALTER TABLE `students`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
